@@ -12,7 +12,7 @@
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <div class="form-group">
                                         <label>CEP<span></span></label>
-                                        <input type="text" name="cep" placeholder="" required="required">
+                                        <input type="text" v-model="cep" name="cep" placeholder="" required="required">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-12">
@@ -49,17 +49,40 @@
                         </form>
                         <!--/ End Form -->
                     </div>
+
+                    <div class="checkout-form" v-show="cep !=''">
+                        <h2 style="margin-bottom:20px">Frete</h2>
+                        <!-- Form -->
+                        <form class="form" method="post">
+                            <div class="content">
+                                <div class="checkbox-pagamento">
+                                    <label 
+                                        v-for="(opcao, index) in opcoesFrete"
+                                        :key="index"
+                                        :for="'opcao_'+index"
+                                    >
+                                        <input name="opcaoFrete" :id="'opcao_'+index" v-model="opcaoFrete" :value="opcao" type="radio"> 
+                                        R$ {{mixinConverterNumberToText(opcao.valor)}} - {{opcao.nome}}
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                        <!--/ End Form -->
+                    </div>
                 </div>
                 <div class="col-lg-4 col-12">
                     <div class="order-details">
                         <!-- Order Widget -->
                         <div class="single-widget">
+                            <div class="content" style="padding:0 30px">
+                                <label class="color-link ">Você receberá {{getPontosReceber}} pontos em troca dessa compra</label>
+                            </div>
                             <h2>Total carrinho</h2>
                             <div class="content">
                                 <ul>
-                                    <li>Subtotal<span>R$330,00</span></li>
-                                    <li>(+) Frete<span>R$10,00</span></li>
-                                    <li class="last">Total<span>R$340,00</span></li>
+                                    <li>Subtotal<span>R$ {{mixinConverterNumberToText(getValorTotalCarrinho)}}</span></li>
+                                    <li>(+) Frete<span>R$ {{mixinConverterNumberToText(getValorFrete)}}</span></li>
+                                    <li class="last">Total<span>R$ {{mixinConverterNumberToText(getValorTotal)}}</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -69,9 +92,9 @@
                             <h2>Formas de pagamento</h2>
                             <div class="content">
                                 <div class="checkbox-pagamento">
-                                    <label for="1"><input name="pagamento" id="1" value="credito" type="radio"> Cartão de crédito</label>
-                                    <label for="2"><input name="pagamento" id="2" value="boleto" type="radio"> Boleto</label>
-                                    <label for="3"><input name="pagamento" id="3" value="paypal" type="radio"> PayPal</label>
+                                    <label for="pagamento1"><input name="pagamento" id="pagamento1" v-model="formaPagamento" value="credito" type="radio"> Cartão de crédito</label>
+                                    <label for="pagamento2"><input name="pagamento" id="pagamento2" v-model="formaPagamento" value="boleto" type="radio"> Boleto</label>
+                                    <label for="pagamento3"><input name="pagamento" id="pagamento3" v-model="formaPagamento" value="paypal" type="radio"> PayPal</label>
                                 </div>
                             </div>
                         </div>
@@ -82,6 +105,48 @@
                                 <img src="images/payment-method.png" alt="#">
                             </div>
                         </div>
+
+                        <div class="single-widget payement" v-show="formaPagamento == 'credito'">
+                            <div class="content">
+                                <form class="form" method="post">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label>Número cartão<span></span></label>
+                                                <input type="text" name="numeroCartao" placeholder="" required="required">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label>Nome impresso no cartão<span></span></label>
+                                                <input type="text" name="nomeImpresso" placeholder="" required="required">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label>Validade<span></span></label>
+                                                <input type="text" name="validade" placeholder="" required="required">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label>CVC<span></span></label>
+                                                <input type="text" name="CVC" placeholder="" required="required">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        
+
                         <!--/ End Payment Method Widget -->
                         <!-- Button Widget -->
                         <div class="single-widget get-button">
@@ -99,6 +164,56 @@
     </section>
     <!--/ End Checkout -->
 </template>
+
+<script>
+
+import { mapGetters, mapActions } from 'vuex'
+import mixinValores from '@/mixins/mixinValores'
+export default {
+    data: () => ({
+        formaPagamento: 'credito',
+        cep: '',
+        opcaoFrete: null,
+
+        opcoesFrete: [
+            {
+                valor: 12.00,
+                nome: 'Sedex - 3 dias'
+            },
+            {
+                valor: 0.00,
+                nome: 'Normal - 8 dias'
+            }
+        ]
+    }),
+
+    mixins: [
+        mixinValores
+    ],
+
+    computed: {
+
+        ...mapGetters(['getValorTotalCarrinho']),
+
+        getValorTotal() {
+            return this.getValorTotalCarrinho + this.getValorFrete
+        },
+
+        getPontosReceber() {
+            let valor = this.getValorTotalCarrinho / 5;
+            return this.mixinConverterTextToNumber(valor);
+        },
+
+        getValorFrete() {
+            return this.opcaoFrete != null ? this.opcaoFrete.valor : 0.00
+        }
+    },
+
+    methods: {
+        ...mapActions([''])
+    }
+}
+</script>
 
 <style>
 
@@ -120,5 +235,9 @@
     display: block;
     margin-bottom: 15px;
     cursor: pointer;
+}
+
+.color-link {
+    color: #00A2FF
 }
 </style>

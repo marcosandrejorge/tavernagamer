@@ -15,7 +15,7 @@ export default [
         id: 1,
         urlImage: urlImage1,
         descricao: 'Steam - Cdkey Aleatório PC',
-        quantidade: 2,
+        quantidade: 1,
         valorUnidade: 15.40,
         valorTotal: 30.80,
         categoria: 'PC/Mobile'
@@ -42,7 +42,7 @@ export default [
         id: 4,
         urlImage: urlImage3,
         descricao: 'Ragnarok WarpPortal - 4000 rops',
-        quantidade: 2,
+        quantidade: 1,
         valorUnidade: 15.40,
         valorTotal: 30.80,
         categoria: 'PC/Mobile'

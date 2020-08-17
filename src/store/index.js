@@ -65,7 +65,7 @@ export default new Vuex.Store({
 			state.arrItensCarrinho.map(item => {
 				total = total + item.valorTotal;
 			});
-
+			
 			return total;
 		},
 

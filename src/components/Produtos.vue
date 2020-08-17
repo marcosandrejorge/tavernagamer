@@ -30,9 +30,15 @@
                                                     </a>                                                
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="product-details.html">{{item.descricao}}</a></h3>
+                                                    <h3><a href="">{{item.descricao}}</a></h3>
                                                     <div class="product-price">
-                                                        <span>R$ {{item.valorUnidade}}</span>
+                                                        <span>R$ {{mixinConverterNumberToText(item.valorUnidade)}}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="product-content" style="margin-bottom:5px">
+                                                    <h3><a href="">Quantidade</a></h3>
+                                                    <div class="product-price">
+                                                        <input style="width:100%;" type="number" name="quantidade" v-model="item.quantidade"/>
                                                     </div>
                                                 </div>
                                                 <div>
@@ -64,6 +70,7 @@
 <script>
 
 import { mapActions } from 'vuex'
+import mixinValores from '@/mixins/mixinValores'
 export default {
     props:{
         arrItens: {
@@ -76,6 +83,10 @@ export default {
             type: String
         }
     },
+
+    mixins: [
+        mixinValores
+    ],
 
     computed: {
         getTitulo() {
@@ -92,6 +103,7 @@ export default {
         },
 
         adicionarCarrinho(item) {
+            item.valorTotal = item.quantidade * item.valorUnidade
             this.setAdicionarUmItemCarrinho(item);
         }
     }

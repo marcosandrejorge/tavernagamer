@@ -12,13 +12,13 @@
                     <button @click="removerItem(index)" class="remove" title="Remover item"><i class="fa fa-remove"></i></button>
                     <a class="cart-img" href="#"><img :src="item.urlImage" alt="#"></a>
                     <h4><a href="#">{{item.descricao}}</a></h4>
-                    <p class="quantity">{{item.quantidade}}x - <span class="amount">R${{item.valorTotal}}</span></p>
+                    <p class="quantity">{{item.quantidade}}x - <span class="amount">R$ {{mixinConverterNumberToText(item.valorTotal)}}</span></p>
                 </li>
             </ul>
             <div class="bottom">
                 <div class="total">
                     <span>Total</span>
-                    <span class="total-amount">R${{getValorTotalCarrinho}}</span>
+                    <span class="total-amount">R$ {{mixinConverterNumberToText(getValorTotalCarrinho)}}</span>
                 </div>
                 <a style="cursor: pointer" v-show="getQuantidadeItens > 0" @click="irParaCarrinho()" class="btn animate">Finalizar pedido</a>
             </div>
@@ -31,10 +31,17 @@
 
 import { mapGetters } from 'vuex'
 import { mapActions } from 'vuex'
+import mixinValores from '@/mixins/mixinValores'
 export default {
+
+    mixins: [
+        mixinValores
+    ],
+
     computed: {
         ...mapGetters(['getItensCarrinho', 'getValorTotalCarrinho', 'getQuantidadeItens']),
     },
+
     methods: {
         ...mapActions(['deleteItemCarrinho']),
 
