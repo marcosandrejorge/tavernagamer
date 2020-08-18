@@ -8,16 +8,16 @@
 
 <h3>Autores</h3>
 
-<b>Ana Pranskunas</b>
-<b>Felipe Candian</b>
-<b>Marcos André Jorge</b>
-<b>Rodrigo de Araújo Temóteo</b>
+<b>Ana Pranskunas</b><br>
+<b>Felipe Candian</b><br>
+<b>Marcos André Jorge</b><br>
+<b>Rodrigo de Araújo Temóteo</b><br>
 
 <h3>Tecnologia utilizada</h3>
 
-<b>Vuejs</b>
-<b>Vuex</b>
-<b>VueRouter</b>
+<b>Vuejs</b><br>
+<b>Vuex</b><br>
+<b>VueRouter</b><br>
 
 
 
