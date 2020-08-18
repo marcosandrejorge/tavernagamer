@@ -21,7 +21,7 @@
 
 <h3>Execução do Projeto</h3>
 
-<code>npm install</code>
+<code>npm install</code> <br>
 <code>npm run serve</code>
 
 
