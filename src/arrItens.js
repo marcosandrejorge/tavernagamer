@@ -18,7 +18,8 @@ export default [
         quantidade: 1,
         valorUnidade: 15.40,
         valorTotal: 30.80,
-        categoria: 'PC/Mobile'
+        categoria: 'PC/Mobile',
+        pontosParaComprar: 15.40,
     },
     {
         id: 2,
@@ -27,7 +28,8 @@ export default [
         quantidade: 1,
         valorUnidade: 15.40,
         valorTotal: 15.40,
-        categoria: 'Xbox'
+        categoria: 'Xbox',
+        pontosParaComprar: 15.40,
     },
     {
         id: 3,
@@ -36,7 +38,8 @@ export default [
         quantidade: 1,
         valorUnidade: 15.40,
         valorTotal: 15.40,
-        categoria: 'Playstation'
+        categoria: 'Playstation',
+        pontosParaComprar: 15.40,
     },
     {
         id: 4,
@@ -45,7 +48,8 @@ export default [
         quantidade: 1,
         valorUnidade: 15.40,
         valorTotal: 30.80,
-        categoria: 'PC/Mobile'
+        categoria: 'PC/Mobile',
+        pontosParaComprar: 15.40,
     },
     {
         id: 5,
@@ -54,7 +58,8 @@ export default [
         quantidade: 1,
         valorUnidade: 15.40,
         valorTotal: 15.40,
-        categoria: 'PC/Mobile'
+        categoria: 'PC/Mobile',
+        pontosParaComprar: 15.40,
     },
     {
         id: 6,
@@ -63,7 +68,8 @@ export default [
         quantidade: 1,
         valorUnidade: 15.40,
         valorTotal: 15.40,
-        categoria: 'PC/Mobile'
+        categoria: 'PC/Mobile',
+        pontosParaComprar: 15.40,
     },
     {
         id: 7,
@@ -72,7 +78,8 @@ export default [
         quantidade: 1,
         valorUnidade: 15.40,
         valorTotal: 15.40,
-        categoria: 'PC/Mobile'
+        categoria: 'PC/Mobile',
+        pontosParaComprar: 15.40,
     },
     {
         id: 8,
@@ -81,7 +88,8 @@ export default [
         quantidade: 1,
         valorUnidade: 15.40,
         valorTotal: 15.40,
-        categoria: 'Xbox'
+        categoria: 'Xbox',
+        pontosParaComprar: 15.40,
     },
     {
         id: 9,
@@ -90,7 +98,8 @@ export default [
         quantidade: 1,
         valorUnidade: 15.40,
         valorTotal: 15.40,
-        categoria: 'Xbox'
+        categoria: 'Xbox',
+        pontosParaComprar: 15.40,
     },
     {
         id: 10,
@@ -99,7 +108,8 @@ export default [
         quantidade: 1,
         valorUnidade: 15.40,
         valorTotal: 15.40,
-        categoria: 'Xbox'
+        categoria: 'Xbox',
+        pontosParaComprar: 15.40,
     },
     {
         id: 11,
@@ -108,7 +118,8 @@ export default [
         quantidade: 1,
         valorUnidade: 15.40,
         valorTotal: 15.40,
-        categoria: 'Xbox'
+        categoria: 'Xbox',
+        pontosParaComprar: 15.40,
     },
     {
         id: 12,
@@ -117,7 +128,8 @@ export default [
         quantidade: 1,
         valorUnidade: 15.40,
         valorTotal: 15.40,
-        categoria: 'Playstation'
+        categoria: 'Playstation',
+        pontosParaComprar: 15.40,
     },
     {
         id: 13,
@@ -234,6 +246,7 @@ export default [
         quantidade: 1,
         valorUnidade: 15.40,
         valorTotal: 15.40,
-        categoria: 'PC/Mobile'
+        categoria: 'PC/Mobile',
+        pontosParaComprar: 15.40,
     },
 ]

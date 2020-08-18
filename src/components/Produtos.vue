@@ -30,13 +30,16 @@
                                                     </a>                                                
                                                 </div>
                                                 <div class="product-content">
-                                                    <h3><a href="">{{item.descricao}}</a></h3>
+                                                    <h3><a href="#">{{item.descricao}}</a></h3>
                                                     <div class="product-price">
                                                         <span>R$ {{mixinConverterNumberToText(item.valorUnidade)}}</span>
                                                     </div>
                                                 </div>
+                                                <div class="product-content" v-show="item.categoria !== 'Produtos'">
+                                                    <h3><a href="#" class="color-link">Ou por {{mixinConverterNumberToText(item.pontosParaComprar)}} pontos</a></h3>
+                                                </div>
                                                 <div class="product-content" style="margin-bottom:5px">
-                                                    <h3><a href="">Quantidade</a></h3>
+                                                    <h3><a href="#">Quantidade</a></h3>
                                                     <div class="product-price">
                                                         <input style="width:100%;" type="number" name="quantidade" v-model="item.quantidade"/>
                                                     </div>
@@ -109,3 +112,9 @@ export default {
     }
 }
 </script>
+
+<style>
+.color-link {
+    color: #00A2FF !important;
+}
+</style>

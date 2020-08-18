@@ -12,15 +12,15 @@
 						<!-- Top Right -->
 						<div class="right-content">
 							<ul class="list-main" v-if="getIsLogado">
-								<li><i class="ti-medall"></i> <a href="">{{getPontos}} pontos</a></li>
-								<li><i class="ti-layers-alt"></i> <a href="">Meus Pedidos</a></li>
-								<li><i class="ti-user"></i> <a href="">Minha Conta</a></li>
-								<li><i class="ti-power-off"></i><a href="" @click="sair()">Sair</a></li>
+								<li><i class="ti-medall"></i> <a href="#">{{getPontos}} pontos</a></li>
+								<li><i class="ti-layers-alt"></i> <a href="#">Meus Pedidos</a></li>
+								<li><i class="ti-user"></i> <a href="#">Minha Conta</a></li>
+								<li><i class="ti-power-off"></i><a href="#" @click="sair()">Sair</a></li>
 							</ul>
 
 							<ul class="list-main" v-if="!getIsLogado">
-								<li><i class="ti-control-record"></i><a href="" @click="irPara('Login')">Login</a></li>
-								<li><i class="fa fa-user-circle-o"></i><a href="" @click="irPara('CadastroUsuario')">Cadastrar-se</a></li>
+								<li><i class="ti-control-record"></i><a href="#" @click="irPara('Login')">Login</a></li>
+								<li><i class="fa fa-user-circle-o"></i><a href="#" @click="irPara('CadastroUsuario')">Cadastrar-se</a></li>
 							</ul>
 						</div>
 						<!-- End Top Right -->
@@ -35,12 +35,12 @@
 					<div class="col-lg-2 col-md-2 col-12">
 						<!-- Logo -->
 						<div class="logo">
-							<a href=""><img style="width:100px" src="images/TavernaGamer.png" alt="logo"></a>
+							<a href="#"><img style="width:100px" src="images/TavernaGamer.png" alt="logo"></a>
 						</div>
 						<!--/ End Logo -->
 						<!-- Search Form -->
 						<div class="search-top">
-							<div class="top-search"><a href=""><i class="ti-search"></i></a></div>
+							<div class="top-search"><a href="#"><i class="ti-search"></i></a></div>
 							<!-- Search Form -->
 							<div class="search-top">
 								<form class="search-form">
@@ -115,11 +115,16 @@
 
 import { mapGetters, mapActions } from 'vuex'
 import Carrinho from '@/components/Carrinho'
+import mixinValores from '@/mixins/mixinValores'
 export default {
 
 	data:() => ({
 		search: '',
 	}),
+
+	mixins: [
+		mixinValores
+	],
 
 	components: {
 		Carrinho
@@ -129,7 +134,7 @@ export default {
 		...mapGetters(['getIsLogado', 'getMostrarMenu', 'getDadosUsuario']),
 
 		getPontos() {
-			return this.getIsLogado ? this.getDadosUsuario.quantidadePontos : 0;
+			return this.getIsLogado ? this.mixinConverterNumberToText(this.getDadosUsuario.quantidadePontos) : 0;
 		},
 	},
 

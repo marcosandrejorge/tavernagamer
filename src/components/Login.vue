@@ -19,7 +19,7 @@
                                 <input v-model="senha" type="password" name="password" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Digite sua senha">
                             </div>
                             <div class="form-group">
-                                <p class="text-center">Ao se inscrever, você aceita nossos <a href="" class="color-link">Termos de Uso</a></p>
+                                <p class="text-center">Ao se inscrever, você aceita nossos <a href="#" class="color-link">Termos de Uso</a></p>
                             </div>
                             <div class="col-md-12 text-center ">
                                 <button @click="login()" type="button" class=" btn btn-block mybtn btn-primary tx-tfm">Login</button>
@@ -31,7 +31,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <p class="text-center">Não tem conta? <a href="" @click="irParaCadastro" class="color-link">Cadastre-se aqui</a></p>
+                                <p class="text-center">Não tem conta? <a href="#" @click="irParaCadastro" class="color-link">Cadastre-se aqui</a></p>
                             </div>
                         </form>
                     </div>

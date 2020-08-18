@@ -33,6 +33,12 @@ Vue.use(VueRouter)
             beforeEnter: (to, from, next) => {
 
                 if (getStore.getIsLogado()) {
+
+                    if (getStore.getQuantidadeItens() == 0) {
+                        next({ name: 'Home' })
+                        return
+                    }
+
                     next()
                     return
                 }

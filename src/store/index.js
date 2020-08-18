@@ -21,25 +21,25 @@ export default new Vuex.Store({
 				cidade: "",
 				estado: ""
 			},
-			quantidadePontos: 100
+			quantidadePontos: 0
 		},
 		usuariosCadastrados: [
 			{
-				nome: "Marcos André Jorge",
+				nome: "Teste",
 				cpf: "",
-				senha: "123",
-				email: "marcosandrejorge@gmail.com",
+				senha: "teste",
+				email: "teste@gmail.com",
 				telefone: "",
 				celular: "",
 				endereco: {
-					rua: "",
-					numero: "",
-					cep: "",
-					bairro: "",
-					cidade: "",
-					estado: ""
+					rua: "Rua Almirante Barroso",
+					numero: "99",
+					cep: "98789-899",
+					bairro: "Verde",
+					cidade: "São Paulo",
+					estado: "São Paulo"
 				},
-				quantidadePontos: 100
+				quantidadePontos: 0
 			}
 		],
 		mostrarMenu: true,
@@ -84,6 +84,14 @@ export default new Vuex.Store({
 		getUsuariosCadastrados(state) {
 			return state.usuariosCadastrados
 		},
+
+		getPontosAtuais(state) {
+			return state.dadosUsuario.quantidadePontos
+		},
+
+		getEndereco(state) {
+			return state.dadosUsuario.endereco
+		},
 	},
   
 	mutations: {
@@ -121,6 +129,34 @@ export default new Vuex.Store({
 			state.dadosUsuario = { ...usuario }
 			state.isLogado = true
 		},
+
+		setAdicionarPontos(state, pontos) {
+			state.dadosUsuario.quantidadePontos = (parseFloat(state.dadosUsuario.quantidadePontos) + parseFloat(pontos)).toFixed(2);
+			state.usuariosCadastrados.map(usuario => {
+				if (state.dadosUsuario.email == usuario.email) {
+					usuario.quantidadePontos = (parseFloat(usuario.quantidadePontos) + parseFloat(pontos)).toFixed(2);
+				}
+			})
+		},
+
+		setDiminuirPontos(state, pontos) {
+			console.log((parseFloat(state.dadosUsuario.quantidadePontos) - parseFloat(pontos)).toFixed(2));
+			state.dadosUsuario.quantidadePontos = (parseFloat(state.dadosUsuario.quantidadePontos) - parseFloat(pontos)).toFixed(2);
+			state.usuariosCadastrados.map(usuario => {
+				if (state.dadosUsuario.email == usuario.email) {
+					usuario.quantidadePontos = (parseFloat(usuario.quantidadePontos) - parseFloat(pontos)).toFixed(2);
+				}
+			})
+		},
+
+		setEndereco(state, objEndereco) {
+			state.dadosUsuario.endereco = { ...objEndereco}
+			state.usuariosCadastrados.map(usuario => {
+				if (state.dadosUsuario.email == usuario.email) {
+					usuario.endereco = { ...objEndereco }
+				}
+			})
+		}
 	},
 
 	actions: {
@@ -150,6 +186,18 @@ export default new Vuex.Store({
 
 		setLogar({ commit }, payload) {
 			commit('setLogar', payload)
+		}, 
+
+		setAdicionarPontos({ commit }, payload) {
+			commit('setAdicionarPontos', payload)
+		},
+
+		setDiminuirPontos({ commit }, payload) {
+			commit('setDiminuirPontos', payload)
+		},
+
+		setEndereco({ commit }, payload) {
+			commit('setEndereco', payload)
 		},
 
 		deleteItemCarrinho({ commit }, payload) {

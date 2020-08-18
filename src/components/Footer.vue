@@ -10,7 +10,7 @@
 						<!-- Single Widget -->
 						<div class="single-footer about">
 							<div class="logo">
-								<a href=""><img style="width:200px" src="images/TavernaGamer.png" alt="logo"></a>
+								<a href="#"><img style="width:200px" src="images/TavernaGamer.png" alt="logo"></a>
 							</div>
 							<p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.</p>
 							<p class="call"><span><a href="tel:123456789">(47)1234-5678</a></span></p>

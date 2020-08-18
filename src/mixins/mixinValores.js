@@ -2,7 +2,7 @@ export default {
     methods: {
         
         mixinConverterNumberToText(number) {
-            return number.toLocaleString('pt-br', { minimumFractionDigits: 2 });
+            return parseFloat(number).toLocaleString('pt-br', { minimumFractionDigits: 2 });
         },
 
         mixinConverterTextToNumber(number) {

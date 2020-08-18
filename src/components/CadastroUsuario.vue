@@ -43,7 +43,7 @@
                             </div>
                             <div class="col-md-12 ">
                                 <div class="form-group">
-                                    <p class="text-center">Já tem uma conta? <a href="" @click="irParaLogin" id="signin" class="color-link">Entre aqui</a></p>
+                                    <p class="text-center">Já tem uma conta? <a href="#" @click="irParaLogin" id="signin" class="color-link">Entre aqui</a></p>
                                 </div>
                             </div>
                         </form>
@@ -99,7 +99,7 @@ export default {
                         cidade: "",
                         estado: ""
                     },
-                    quantidadePontos: 100
+                    quantidadePontos: 0
                 }
 
                 this.mixinCadastrarUsuario(objUsuario)
