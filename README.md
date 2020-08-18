@@ -21,4 +21,13 @@
 
 
 
+<h3>Algumas telas da aplicação:</h3>
+
+![alt text](https://github.com/marcosandrejorge/tavernagamer/blob/master/imagens/login.PNG)
+![alt text](https://github.com/marcosandrejorge/tavernagamer/blob/master/imagens/cadastro.PNG)
+![alt text](https://github.com/marcosandrejorge/tavernagamer/blob/master/imagens/produtos.PNG)
+![alt text](https://github.com/marcosandrejorge/tavernagamer/blob/master/imagens/produtos_para_troca.PNG)
+![alt text](https://github.com/marcosandrejorge/tavernagamer/blob/master/imagens/finalizar_pedido.PNG)
+
+
 
