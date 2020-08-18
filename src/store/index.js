@@ -27,7 +27,7 @@ export default new Vuex.Store({
 			{
 				nome: "Teste",
 				cpf: "",
-				senha: "teste",
+				senha: "123",
 				email: "teste@gmail.com",
 				telefone: "",
 				celular: "",

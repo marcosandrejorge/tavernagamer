@@ -141,7 +141,7 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label>Número cartão<span></span></label>
-                                                <input type="text" name="numeroCartao" placeholder="" required="required">
+                                                <input type="text" name="numeroCartao" placeholder="" required="required" value="123456789022">
                                             </div>
                                         </div>
                                     </div>
@@ -149,7 +149,7 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label>Nome impresso no cartão<span></span></label>
-                                                <input type="text" name="nomeImpresso" placeholder="" required="required">
+                                                <input type="text" name="nomeImpresso" placeholder="" required="required" value="Marcos André Jorge">
                                             </div>
                                         </div>
                                     </div>
@@ -157,7 +157,7 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label>Validade<span></span></label>
-                                                <input type="text" name="validade" placeholder="" required="required">
+                                                <input type="text" name="validade" placeholder="" required="required" value="10/28">
                                             </div>
                                         </div>
                                     </div>
@@ -165,7 +165,7 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label>CVC<span></span></label>
-                                                <input type="text" name="CVC" placeholder="" required="required">
+                                                <input type="text" name="CVC" placeholder="" required="required" value="455">
                                             </div>
                                         </div>
                                     </div>
