@@ -19,6 +19,10 @@
 <b>Vuex</b><br>
 <b>VueRouter</b><br>
 
+<h3>Execução do Projeto</h3>
+
+<code>npm install</code>
+<code>npm run serve</code>
 
 
 <h3>Algumas telas da aplicação:</h3>
