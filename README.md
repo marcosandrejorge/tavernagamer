@@ -13,7 +13,7 @@
 <b>Marcos André Jorge</b><br>
 <b>Rodrigo de Araújo Temóteo</b><br>
 
-<h3>Tecnologia utilizada</h3>
+<h3>Tecnologias utilizadas</h3>
 
 <b>Vuejs</b><br>
 <b>Vuex</b><br>
